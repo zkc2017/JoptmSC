@@ -1,0 +1,6 @@
+0.02
+time cost average:377.573s
+time cost maximum:2851.85s
+0.05
+time cost average:473.091s
+time cost maximum:5883.81s

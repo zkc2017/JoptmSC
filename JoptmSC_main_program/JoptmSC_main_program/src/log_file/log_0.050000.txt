@@ -1,0 +1,35 @@
+begin search function-1
+cost time5907587milliseconds
+Accuracy (MAE)0.047964
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function1
+begin search function-2
+cost time348milliseconds
+Accuracy (MAE)0.013642
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function2
+begin search function-3
+cost time63077milliseconds
+Accuracy (MAE)0.043678
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function3
+begin search function-4
+cost time306milliseconds
+Accuracy (MAE)0.043531
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function4
+begin search function-5
+cost time1880milliseconds
+Accuracy (MAE)0.029859
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function5
+begin search function-6
+cost time604milliseconds
+Accuracy (MAE)0.014060
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function6
+begin search function-15
+cost time3487milliseconds
+Accuracy (MAE)0.005385
+year:2022 month:6 day:24 hour:14 minute:26 second:14
+finish function15
