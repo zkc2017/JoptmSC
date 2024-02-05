@@ -1,12 +1,15 @@
-# MinSC: An Exact Synthesis-Based Method for Minimal-Area Stochastic Circuits under Relaxed Error Bound
+# Joint optimization of randomizer and computing core for low-cost stochastic circuits
 
-This project implements the exact-synthesis method to find an area-optimal SC circuit with the relaxed error bound over the target function.
+This project implements the method to jointly optimize the randomizer and the computing core for low-cost stochastic circuits.
 
 Related papers:
-- [1]: MinSC: An Exact Synthesis-Based Method for Minimal-AreaStochastic Circuits under Relaxed Error Bound (Xuan Wang, Zhufei Chu, and Weikang Qian, ICCAD 2021)
+- [1]: Joint optimization of randomizer and computing core for low-cost stochastic circuits (Kuncai Zhong, Xuan Wang, Chen Wang, and Weikang Qian, NANOARCH 2023)
 
 Reference papers:
 - [2]: Stochastic Circuit Synthesis by Cube Assignment (Xuesong Peng, and Weikang Qian, TCAD 2018)
+- [3]: Exploring Target Function Approximation for Stochastic Circuit Minimization (Chen Wang, Weihua Xiao, John P. Hayes, and Weikang Qian, ICCAD 2020)
+- [4]: MinSC: An Exact Synthesis-Based Method for Minimal-AreaStochastic Circuits under Relaxed Error Bound (Xuan Wang, Zhufei Chu, and Weikang Qian, ICCAD 2021)
+- [5]: Towards Low-Cost High-Accuracy Stochastic Computing Architecture for Univariate Functions: Design and Design Space Exploration (Kuncai Zhong, Zexi Li, Weikang Qian, DATE 2022)
 
 ## Requirements
 
@@ -18,9 +21,7 @@ Reference papers:
 
 ## Important Notes
 
-- Since the program requires the EDA tools [ABC](http://people.eecs.berkeley.edu/~alanmi/abc/),[MVSIS](https://ptolemy.berkeley.edu/projects/embedded/mvsis/), and SMT Solver [Z3](https://github.com/Z3Prover/z3), please download the appropriate executable files or compile the source codes in your OS. 
- - For ABC, suppose the absolute directory containing the executable file `abc` is `<abc_exe_absolute_directory>`. Then, before compiling the MinSC program, please execute command: ` cp abc_exe_absolute_directory /usr/bin/abc`, which ensures ABC can run in an arbitrary path.
- - For MVSIS, suppose the absolute directory containing the executable file `abc` is `<mvsis_exe_absolute_directory>`. Then, before compiling the MinSC program, please execute command: ` cp mvsis_exe_absolute_directory /usr/bin/mvsis`, which ensures MVSIS can run in an arbitrary path.
+- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC).
   
 ## Getting Started
 ### Configuration in Project
@@ -55,6 +56,7 @@ Reference papers:
     12                    sqrt(x)
     13                    tan(x/2)
     14                    x*ln(x/2)+1
+    15                    1/(1+exp(-1*x))
    ```
    
 ## Program Organization
@@ -82,6 +84,15 @@ Reference papers:
 |     |     |----bm1
 |     |     |----bm2
 |     |     |----(and so on)
+|----configuration
+|     |----error_ratio2
+|     |     |----bm1
+|     |     |----bm2
+|     |     |----(and so on)
+|     |----error_ratio5
+|     |     |----bm1
+|     |     |----bm2
+|     |     |----(and so on)
 |----examples_demo_results
 |     |----error_ratio2
 |     |     |----bm1
@@ -91,6 +102,10 @@ Reference papers:
 |     |     |----bm1
 |     |     |----bm2
 |     |     |----(and so on)
+|----LFSR
+|     |----bit_4.txt
+|     |----bit_5.txt
+|     |----(and so on)
 ```
 
 - `src`: contains all source files and header files.
@@ -101,10 +116,14 @@ Reference papers:
    degree n precision m feature vector
 ```
 - `temp_dir`: contains temporary files generated during the running of the program.
+- `LFSR`: contains the feedback polynomial information for LFSRs.
 - `output_dir`: contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the output files for all the benchmarks with error ratio 0.02 in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the output files for all the benchmarks with error ratio 0.05 used in each sub-folder such as `bm1`, `bm2`, etc..
   The output files are:
   - `<bm_name>-bestSol_summary.txt`: overall summary of the best solution with minimal area for `<bm_name>`.
   - `<bm_name>-solution<num>.v`: gate-level Verilog file for the solution with number `<num>`.
+- `configuration`: contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.02 in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.05 used in each sub-folder such as `bm1`, `bm2`, etc..
+  The configuration files are:
+  - `<bm_name>-configuration.txt`: overall configurations for the randomizer for `<bm_name>`.
 - `examples_demo_results`: contains output results for all benchmarks with different error ratios. It contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the output files for all the benchmarks with error ratio 0.02 used in our paper [1] in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the output files for all the benchmarks with error ratio 0.05 used in our paper [1] in each sub-folder such as `bm1`, `bm2`, etc..
 
 ## Speedup Techniques (POA & MGS)
