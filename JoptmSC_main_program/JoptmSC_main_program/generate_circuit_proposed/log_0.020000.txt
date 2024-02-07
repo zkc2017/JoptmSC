@@ -1,3 +1,0 @@
-begin generate circuit-1
-year:2022 month:7 day:9 hour:16 minute:44 second:33
-finish generate circuit 1

@@ -1,3 +1,0 @@
-3 3 3.
-The optimal ASCP is stored in solution3.v, and the optimal area is: 9
-

@@ -1,1 +1,0 @@
-non_zero_num

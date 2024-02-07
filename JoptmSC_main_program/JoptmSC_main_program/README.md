@@ -93,15 +93,6 @@ Reference papers:
 |     |     |----bm1
 |     |     |----bm2
 |     |     |----(and so on)
-|----examples_demo_results
-|     |----error_ratio2
-|     |     |----bm1
-|     |     |----bm2
-|     |     |----(and so on)
-|     |----error_ratio5
-|     |     |----bm1
-|     |     |----bm2
-|     |     |----(and so on)
 |----LFSR
 |     |----bit_4.txt
 |     |----bit_5.txt
@@ -124,29 +115,3 @@ Reference papers:
 - `configuration`: contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.02 in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.05 used in each sub-folder such as `bm1`, `bm2`, etc..
   The configuration files are:
   - `<bm_name>-configuration.txt`: overall configurations for the randomizer for `<bm_name>`.
-- `examples_demo_results`: contains output results for all benchmarks with different error ratios. It contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the output files for all the benchmarks with error ratio 0.02 used in our paper [1] in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the output files for all the benchmarks with error ratio 0.05 used in our paper [1] in each sub-folder such as `bm1`, `bm2`, etc..
-
-## Speedup Techniques (POA & MGS)
-- To speed up the solving process, for the error ratio 0.02, we apply POA and MGS techniques to the 5th, 8th, 11th, 12th, and 13th functions.  For the error ratio   0.05, these two techniques are applied to the 13th and 14th functions.
-- For these target functions with error ratio 0.02, in the demo experiments, given target function ID `bm_id_under_test`, we give the detailed POA and MGS information in the path `DCV_MGS/error_ratio2/bm_id_under_test.txt`.
-- For these target functions with error ratio 0.05, in the demo experiments, given target function ID `bm_id_under_test`, we give the detailed POA and MGS information in the path `DCV_MGS/error_ratio5/bm_id_under_test.txt`.
-- The format of the content:
-```
-The first row: For POA technique, choose which level of the solution tree in Peng's method [2] for each ASCP (The index is from 1).
-The second row: For POA technique, choose which cube in the current level of the solution tree in Peng's method[2] for each ASCP (The index is from 0).
-The thrid row: For MGS technique, the value of the first coarse granularity of each ASCP.
-The fourth row: For MGS technique, the value of the second coarse granularity of each ASCP.
-Following rows: the feature vectors corresponding to each ASCP with different coarse granularities.
-```
-For example, for the 12th function with error ratio 0.02, it has 2 ASCPs, i.e., ASCP1 and ASCP2. The content of the file `DCV_MGS/error_ratio2/12.txt` is:
-```
-2 2
-1 1
-2 2
-1 1
-0 2 2 0
-0 2 2 0
-0 0 0 0
-0 0 0 0
-```
-where the first line denotes that level of the solution tree we choose in Peng's method for ASCP1 and ASCP2 are both 2. The second line denotes that we choose the second cube in the current level of the solution tree in Peng's method for both ASCPs. The thrid line denotes that the value of the first coarse granularity for ASCP1 and ASCP2 are both 2. The fourth line denotes that the value of the second coarse granularity for ASCP1 and ASCP2 are both 1. The fifth line and the sixth line denote that the feature vector corresponding to ASCP1 and ASCP2 with the the first coarse granularity (i.e., 2) are both \[0,2,2,0\]. The seventh line and the eighth line denote that the feature vector corresponding to ASCP1 and ASCP2 with the the second coarse granularity (i.e., 1) are both \[0,0,0,0\].
