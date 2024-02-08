@@ -123,4 +123,4 @@ Reference papers:
   - `<bm_name>-solution<num>.v`: gate-level Verilog file for the solution with number `<num>`.
 - `configuration`: contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.02 in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the configuration files of the randomizers for all the benchmarks with error ratio 0.05 used in each sub-folder such as `bm1`, `bm2`, etc..
   The configuration files are:
-  - `<bm_name>-configuration.txt`: overall configurations for the randomizer for `<bm_name>`.
+  - `<bm_name>-configuration.txt`: overall configurations of the randomizer for `<bm_name>`.
