@@ -28,7 +28,7 @@ Reference papers:
 
 ## Important Notes
 
-- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC) and [TFASC](https://github.com/SJTU-ECTL/TFASC/tree/master/TFASC%20main%20program).
+- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC).
 
 ### Input Format
 - `approx_error_bound_ratio` : the error ratio which controls the error bound of approximation. In our paper, we set error ratio as 0.02 and 0.05, respectively.
