@@ -25,8 +25,9 @@ Reference papers:
 
 ## How to run
 
-- `g++ clause.hpp clause.cpp hash_extend.h node.h node.cpp obtain_circuit_main.cpp target_functions.h target_functions.cpp simulation.h simulation.cpp -lz3 -o simulation`
-- `./simulation`
+- You can use the following command to run the code.
+  `g++ clause.hpp clause.cpp hash_extend.h node.h node.cpp obtain_circuit_main.cpp target_functions.h target_functions.cpp simulation.h simulation.cpp -lz3 -o simulation`
+  `./simulation`
 - Alternatively, you can directly execute  `sh run.sh` as well.
  
 
