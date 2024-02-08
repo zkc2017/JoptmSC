@@ -19,17 +19,16 @@ Reference papers:
 - EDA logic synthesis tools: [ABC](http://people.eecs.berkeley.edu/~alanmi/abc/), [MVSIS](https://github.com/sterin/mvsis) executable files
 - SMT Solver: [Z3](https://github.com/Z3Prover/z3)
 
-## Important Notes
-
-- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC) and [TFASC](https://github.com/SJTU-ECTL/TFASC/tree/master/TFASC%20main%20program).
-
 ## How to run
 
 - You can use the following commands to run the code.
   - `g++ clause.hpp clause.cpp hash_extend.h node.h node.cpp obtain_circuit_main.cpp target_functions.h target_functions.cpp simulation.h simulation.cpp -lz3 -o simulation`
   - `./simulation`
 - Alternatively, you can directly execute  `sh run.sh` as well.
- 
+
+## Important Notes
+
+- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC) and [TFASC](https://github.com/SJTU-ECTL/TFASC/tree/master/TFASC%20main%20program).
 
 ### Input Format
 - `approx_error_bound_ratio` : the error ratio which controls the error bound of approximation. In our paper, we set error ratio as 0.02 and 0.05, respectively.
