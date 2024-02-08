@@ -21,20 +21,14 @@ Reference papers:
 
 ## Important Notes
 
-- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC).
-  
-## Getting Started
-### Configuration in Project
-- Install Z3 at a self-defined path `Z3_Path`
-- Set up a C++ project;
-- Add the source files and header files in the folder `src/`;
-- Configure the library path of Z3 for this project:
+- For the setup of the code, you can consult [MinSC](https://github.com/SJTU-ECTL/MinSC) and [TFASC](https://github.com/SJTU-ECTL/TFASC/tree/master/TFASC%20main%20program).
 
-  Project->Property->
-  - GCC C++ Complier->Includes->Include paths->Add->: `Z3_Path\src\api`;
-  - GCC C++ Complier->Includes->Include paths->Add->: `Z3_Path\src\api\c++`;
-  - GCC C++ Linker->Library search path(-L)->Add： `Z3_Path\build`;
-  - GCC C++ Linker->Libraries(-l)->Add： `z3`;
+## How to run
+
+- `g++ clause.hpp clause.cpp hash_extend.h node.h node.cpp obtain_circuit_main.cpp target_functions.h target_functions.cpp simulation.h simulation.cpp -lz3 -o simulation`
+- `./simulation`
+- Alternatively, you can directly execute  `sh run.sh` as well.
+ 
 
 ### Input Format
 - `approx_error_bound_ratio` : the error ratio which controls the error bound of approximation. In our paper, we set error ratio as 0.02 and 0.05, respectively.
@@ -97,6 +91,18 @@ Reference papers:
 |     |----bit_4.txt
 |     |----bit_5.txt
 |     |----(and so on)
+|----DCV_MGS
+|     |----error_ratio2
+|     |     |----5.txt
+|     |     |----8.txt
+|     |     |----(and so on)
+|     |----error_ratio5
+|     |     |----13.txt
+|     |     |----14.txt
+|     |     |----(and so on)
+|----log_file
+|     |----log_0.020000.txt
+|     |----log_0.050000.txt
 ```
 
 - `src`: contains all source files and header files.
@@ -108,6 +114,8 @@ Reference papers:
 ```
 - `temp_dir`: contains temporary files generated during the running of the program.
 - `LFSR`: contains the feedback polynomial information for LFSRs.
+- `log file`: contains the log information under different `approx_error_bound_ratio` values.
+- `DCV_MGS`: contains [POA and MGS](https://github.com/SJTU-ECTL/MinSC/tree/master/MinSC_main_program) information for some functions.
 - `output_dir`: contains two sub-folders, i.e., `error_ratio2` and `error_ratio5`. `error_ratio2` contains the output files for all the benchmarks with error ratio 0.02 in each sub-folder such as `bm1`, `bm2`, etc., while `error_ratio5` contains the output files for all the benchmarks with error ratio 0.05 used in each sub-folder such as `bm1`, `bm2`, etc..
   The output files are:
   - `<bm_name>-bestSol_summary.txt`: overall summary of the best solution with minimal area for `<bm_name>`.

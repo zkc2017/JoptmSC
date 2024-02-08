@@ -44,7 +44,7 @@ int main(int argc, char* argv[]){
 	double time_cost_all = 0;
 	
     char log_filename[100];
-    strcpy(log_filename, "log_");
+    strcpy(log_filename, "./log_file/log_");
     strcat(log_filename, std::to_string(approx_error_bound_ratio).data());
     strcat(log_filename, ".txt");
     ofstream out;
@@ -307,7 +307,7 @@ double simulation_main(int bm_id_under_test, double approx_error_bound_ratio, in
 
 two_die_vector_int obtain_LFSR_polynomial(int bit_width) {
 	char cmd[100];
-	strcpy(cmd, "LFSR/bit_");
+	strcpy(cmd, "./LFSR/bit_");
 	strcat(cmd, std::to_string(bit_width).data());
 	strcat(cmd, ".txt");
 
